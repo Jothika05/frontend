@@ -1,0 +1,34 @@
+<div style="border: 2px solid blue">
+  Product list: <br /><br />
+
+  <table border="2">
+    <tr>
+      <th>IMAGE</th>
+      <th>NAME</th>
+      <th>PRICE</th>
+      <th>SPECIAL</th>
+      <th>IN STOCK</th>
+    </tr>
+    <div *ngFor="let prod of products">
+      <div *ngIf="products.length > 0">
+        <tr>
+          <td><img [src]="prod.imgSrc" width="150px" height="120px" /></td>
+          <td>{{ prod.name }}</td>
+          <td [ngStyle]="{ color: prod.price <= 500 ? 'red' : 'black' }">
+            {{ prod.price }}
+          </td>
+          <td>
+            <div [style.color]="prod.isSpecial ? 'red' : 'green'">
+              This product is Special
+            </div>
+          </td>
+
+          <td>
+            <div [class.inStock]="prod.inStock">This product is in Stock</div>
+          </td>
+        </tr>
+      </div>
+    </div>
+    <div *ngIf="products.length == 0">No Products to show</div>
+  </table>
+</div>
