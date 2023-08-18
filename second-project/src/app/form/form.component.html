@@ -1,0 +1,20 @@
+<h3>Form Component</h3>
+<h4>Form to list components share data</h4>
+<form action="">
+    <label for="">Car Name</label>
+    <input type="text" name="carname" [(ngModel)]="carName">
+    <button (click)="addCar()">submit</button>
+</form>
+<br><br>
+<app-list [carsInput]="cars"></app-list>
+
+
+
+<!-- List to Form components share data -->
+<!-- <h3>Form Component</h3>
+<h4>List to Form components share data</h4>
+<form action="">
+    <label for="">Car Name</label>
+    <input type="text" name="carname" [(ngModel)]="carName">
+    <button (click)="addCar()">submit</button>
+</form> -->

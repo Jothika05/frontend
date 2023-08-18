@@ -1,0 +1,154 @@
+<h1>Directives Examples</h1>
+<h4>1.Using ngFor</h4>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    {{ title }}
+  </div>
+
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>S.no</th>
+            <th>Title</th>
+            <th>Director</th>
+            <th>Year</th>
+            <th>Cast</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            [ngClass]="{ 'bg-success': o, 'bg-danger': e }"
+            *ngFor="
+              let movie of movies;
+              let i = index;
+              let o = odd;
+              let e = even
+            "
+          >
+            <td>{{ i + 1 }}</td>
+            <td>{{ movie.title }}</td>
+            <td>{{ movie.director }}</td>
+            <td>{{ movie.year }}</td>
+            <td>{{ movie.cast }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<br />
+<h4>2.Using ngSwitch and ngSwitchCase</h4>
+<label for="">Type Something</label>
+<input type="text" [(ngModel)]="num" />
+<div [ngSwitch]="num">
+  <div *ngSwitchCase="1">One</div>
+  <div *ngSwitchCase="2">Two</div>
+  <div *ngSwitchCase="3">Three</div>
+  <div *ngSwitchCase="4">Four</div>
+  <div *ngSwitchCase="5">Five</div>
+</div>
+
+<br />
+<h4>3.ngIf Example</h4>
+<p *ngIf="true">Can you see me?</p>
+
+<div class="col">
+  <label for="">Checkbox</label> <input type="checkbox" [(ngModel)]="showMe" />
+</div>
+
+<div *ngIf="showMe; then thenBlock; else elseBlock"></div>
+
+<ng-template #thenBlock>
+  <p>showMe is checked</p>
+</ng-template>
+
+<ng-template #elseBlock>
+  <p *ngIf="!showMe">showMe is unchecked</p>
+</ng-template>
+
+
+Pink<input type="checkbox" [(ngModel)]="enableDeeppink">
+Big<input type="checkbox" [(ngModel)]="enableBig">
+Italics<input type="checkbox" [(ngModel)]="enableItalics">
+
+<div [ngClass]="
+{ 
+    'primary':enableDeeppink,
+    'big' :enableBig,
+    'italics' :enableItalics
+
+
+}">
+Sample Text
+</div>
+
+<div [ngStyle]="{
+    'color':status=='error'?'orange':'blue',
+    'font-size':'30px',
+    'font-weight':'bold'}">
+First line
+</div>
+<br><br>
+
+Color :    <input type="text" [(ngModel)]="color">
+<div [ngStyle]="{
+    'background-color':color,
+}">haii</div>
+
+
+
+
+
+
+
+
+<br><br>
+<h1>Pipes</h1>
+<p>unformatted date: {{toDate}}</p>
+<p>formatted date: {{toDate|date}}</p>
+<p>Medium date: {{toDate|date:'medium'}}</p>
+<p>Short date: {{toDate|date:'short'}}</p>
+<p>Full date: {{toDate|date:'fullDate'}}</p>
+<p>Long date: {{toDate|date:'longDate'}}</p>
+
+<hr>
+<p>Original text : {{message}}</p>
+<p>UpperCase text : {{message|uppercase}}</p>
+<p>LowerCase text : {{message|lowercase}}</p>
+<hr>
+<p>Original text : {{message}}</p>
+<p>Slice text : {{message|slice:11:20}}</p>
+<p>Slice text : {{message|slice:-8}}</p>
+<p>Slice text : {{message|slice:0:8}}</p>
+<hr>
+<p>Price without formating  : {{price}}</p>
+<p>Price with formating  : {{price|currency}}</p>
+<p>Price with formating  : {{price|currency:'INR'}}</p>
+<p>Price with formating  : {{price|currency:'INR':false}}</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br>

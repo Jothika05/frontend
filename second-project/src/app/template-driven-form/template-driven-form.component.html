@@ -1,0 +1,63 @@
+<h3>Template Driven Form</h3>
+<form #contactForm="ngForm" (submit)="onSubmit(contactForm)">
+    <p>
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname" #firstname="ngModel" name="firstname" [(ngModel)]="contact.firstName" required>
+        <span class="text-danger" *ngIf="!firstname.valid && (firstname.touched || firstname.dirty)">
+            Invalid FirstName
+        </span>
+    </p>
+
+    <p>
+        <label for="lastname">Last Name</label>
+        <input type="text" id="lastname"name="lastname"  [(ngModel)]="contact.lastName">
+    </p>
+
+    <p>
+        <label for="email">Email</label>
+        <input type="text" id="email"name="email"  [(ngModel)]="contact.email">
+    </p>
+    <p>
+        <label for="gender">Gender :</label >
+        <input type="radio"  value="male" name="gender" id="male"   [(ngModel)]="contact.gender">Male
+        <input type="radio"  value="female" name="gender" id="female" [(ngModel)]="contact.gender">Female
+    </p>
+
+    <p>
+        <label for="isMarried">Married Status :</label>
+        <input type="checkbox" id="isMarried" value="isMarried" name="isMarried"  [(ngModel)]="contact.isMarried">
+    
+    </p>
+    
+
+    <p><label for="country">Country :</label>
+        <select name="country" id="country" [(ngModel)]="contact.country">
+            <option value="">Select</option>
+            <option [ngValue]="country.id" *ngFor="let country of  countryList">
+                {{country.name}}
+            </option>
+        </select>
+    </p>
+    <div ngModelGroup="address">
+        
+    <p>
+        <label for="city">City</label>
+        <input type="text" id="city"name="city" [(ngModel)]="contact.address.city">
+    </p>
+    
+    <p>
+        <label for="street">Street</label>
+        <input type="text" id="street"name="street" [(ngModel)]="contact.address.street">
+    </p>
+    
+    <p>
+        <label for="pincode">Pincode</label>
+        <input type="text" id="pincode"name="pincode" [(ngModel)]="contact.address.pincode">
+    </p>
+
+
+    </div>
+    <p>
+        <button type="submit" [disabled]="!contactForm.valid">Submit</button>
+    </p>
+</form>

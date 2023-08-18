@@ -1,0 +1,18 @@
+h4{
+    color: red;
+}
+.primary{
+    color:deeppink;
+}
+.secondary{
+    color: aqua;
+}
+.big{
+    font-size: 40px;
+}
+.small{
+    font-size: 12px;
+}
+.italics{
+    font-style: italic;
+}
