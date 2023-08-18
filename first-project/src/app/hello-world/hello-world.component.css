@@ -1,0 +1,15 @@
+h1{
+    color:green;
+    background-color:pink;
+}
+h2{
+    color: red;
+
+}
+.highlight {
+    background-color: yellow;
+  }
+  .bold {
+    font-weight: bold;
+  }
+ 

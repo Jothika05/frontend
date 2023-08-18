@@ -1,0 +1,49 @@
+<h1>{{title}} works!</h1>
+<br>
+<h2>String Interpolation</h2>
+<h3>{{'Welcome'+'  my '+ 'page!'}}</h3>
+<h3>{{name}}</h3> 
+<h3>{{getTitle()}}</h3>
+<h3>100 x 5 ={{100*5}}</h3>
+<h3>Largest Number: {{getMax(10,50)}}</h3>
+<p style.color="{{color1}}">This is Blue</p>
+<p style.color="{{color2}}">This is Brown</p>
+
+<br>
+<h2>One Way Binding</h2>
+<h3>{{firstName}} {{lastName}}</h3>
+<br>
+
+
+<h2>Two way Binding</h2>
+<h3>{{name}}</h3>
+<input type="text" [(ngModel)]="name">
+<br>
+
+
+<h2>Property  Binding</h2>
+<h3 [innerText]="state"></h3>
+<button [disabled]="isDisabled">Click Me!</button> <br>
+<br><button [attr.disabled]="isDisabled">Disabled</button>
+<br>
+<p [innerText]="'Welcome to'+' Angular'"></p>
+
+<h2>Class Binding And Style binding</h2>
+ <div [ngClass]="{'highlight': isHighlighted, 'bold': isBold}" [ngStyle]="dynamicStyle">
+    This div has dynamic class and style bindings
+  </div><br><br>
+  <button (click)="toggleHighlight()">Toggle Highlight</button>
+  <button (click)="toggleBold()">Toggle Bold</button>
+  <button (click)="changeStyle()">Change Style</button>
+
+
+<h2>Event Binding</h2>
+<p>You Have Clicked :{{clickCount}}</p>
+<p>Copy of  clickCount1 :{{clickCount1}}</p>
+<button (click)="clickme(); clickCount1=clickCount">Click me</button>
+<br><br>
+Type Something: <input type="text" (input)="handleInput($event); value1=$any($event.target).value">
+<p>With handleInput :  {{value}}</p>
+<p>Without handleInput :  {{value1}}</p>
+
+
